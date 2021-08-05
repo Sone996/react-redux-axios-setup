@@ -22,21 +22,24 @@ function App(props) {
   }, [])
 
   return (
-    <div className="App">
+    <div className="App mt-4">
       <div>Count: {props.count}</div>
-      <button onClick={() => props.increaseCounter()}>Increase Count</button>
-      <button onClick={() => props.decreaseCounter()}>Decrease Count</button>
-      <div className="list">
+      <button className="bg-reactblue text-lightblue p-2 rounded-lg border" onClick={() => props.increaseCounter()}>Increase Count</button>
+      <button className="bg-reactblue text-lightblue p-2 rounded-lg border" onClick={() => props.decreaseCounter()}>Decrease Count</button>
+      <div className="flex flex-col mx-32 border-t mt-5 pt-5">
         {/* dasasda { productsSelector.length } */}
         {
           productsSelector.map(product => 
-            <div key={product.id} className="listItem">
-              <span>{product.id}.</span>
-              <span>{product.title}</span>
-              <span>{product.price}</span>
-              {/* <span>{product.description}</span> */}
-              <span>{product.category}</span>
-              {/* <image src={product.image} alt="img" style={{width: "300px", height: "300px"}}></image> */}
+            <div key={product.id} className="bg-reactBlue text-lightBlue flex  flex-col p-2 m-2 rounded-lg justify-between">
+              <div className="flex w-full items-center justify-between">
+                <img src={product.image} alt="img" className="w-16 h-16 rounded-full"></img>
+                <span>{product.title}</span>
+                <span>{product.price}</span>
+                <span>{product.category}</span>
+              </div>
+              <div className="flex p-1">
+                <span>{product.description}</span>
+              </div>
             </div>
           )
         }
